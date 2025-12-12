@@ -1,0 +1,5 @@
+# Workshop planning notes (untracked working files)
+ws*.md
+
+# OS files
+.DS_Store
