@@ -1,6 +1,6 @@
 # Workshop 1: Introduction to Prompt-Commands
 
-**Learn to build AI-agnostic development tools by creating a quiz app, then improving it with prompt infrastructure**
+**Learn to build AI-agnostic development tools by solving a real problem with proper software development workflow**
 
 ## Getting Started
 
@@ -60,14 +60,16 @@ Prompt-commands are plain markdown files that tell your AI assistant what to do.
 - Work with any AI assistant
 - Stored in your project as `.md` files
 - Invoked by typing `>name` in conversation
-- Example: `>quiz` to start your quiz session
+- Example: `>spec` to create a specification
 
 ### How They Work
 
 1. You create a prompt file: `prompts/commit.md`
 2. You invoke it in conversation: `>commit`
-3. Your AI reads the file and follows the instructions
-4. It works everywhere because it's just markdown
+3. Your AI runs `python prompt.py commit` to read the prompt
+4. Your AI follows the instructions in the prompt
+
+The `prompt.py` utility handles finding and reading prompts automatically.
 
 ### Why Use Prompt-Commands?
 
@@ -80,110 +82,59 @@ Prompt-commands are plain markdown files that tell your AI assistant what to do.
 
 ## Workshop Overview
 
-This workshop uses a **"build simply, then improve"** approach:
+This workshop teaches software development workflow while building prompt-command infrastructure:
 
-1. **Phase 1**: Build a basic quiz app (no best practices yet)
-2. **Phases 2-5**: Add prompt infrastructure to solve real problems
-3. **Learn by doing**: See the value of each prompt as you add it
+**The Approach:**
+1. Start with a problem
+2. Write a specification
+3. Break into user stories
+4. Build iteratively
 
 By the end, you'll have:
-- A working spaced repetition quiz tool
-- Four reusable prompt-commands (`>spec`, `>test`, `>commit`, `>pr`)
-- Understanding of how to build AI-agnostic development tools
+- A working spaced repetition learning app
+- Two reusable prompts (`>spec`, `>commit`)
+- Experience with spec-driven development
+- Platform-agnostic tools you can use in any project
 
-## Phase 1: Build Minimum Viable Quiz
+## The Problem
 
-**Goal**: Create a working quiz app without worrying about best practices yet.
+You want to build a **spaced repetition learning tool** that helps you study any topic effectively.
 
-### What We're Building
+**Requirements (high-level):**
+- Add questions on any topic
+- Test yourself with those questions
+- Schedule questions based on how well you know them (spaced repetition)
+- Track your progress over time
+- Simple, command-line based
 
-A simple quiz tool that:
-- Lets you add questions with topics
-- Retrieves questions to ask
-- Records your answers
-- Stores everything in a simple text file
+**Note:** We're deliberately NOT prescribing:
+- File formats
+- Script names
+- Directory structure
+- Implementation approach
 
-### Implementation
+You and your AI will figure these out while following the spec you create.
 
-Create three basic Python scripts in `scripts/`:
+## Phase 1: Create the Specification
 
-1. **`add_question.py`** - Append questions to `data/questions.txt`
-   - Takes input: topic, question, answer
-   - Appends to file in simple format
+**Goal**: Build a `>spec` prompt and use it to create a formal specification.
 
-2. **`get_next.py`** - Read and return next question from file
-   - Reads from `data/questions.txt`
-   - Returns first unasked question
+### Step 1: Understand What a Spec Does
 
-3. **`record_answer.py`** - Append answer to `data/questions.txt`
-   - Records user's answer
-   - Marks question as answered
+A specification:
+- Defines **what** the system does (not how)
+- Lists user stories (features from user perspective)
+- Provides architecture notes (technical decisions)
+- Serves as the contract for development
 
-### Directory Structure
+### Step 2: Create `prompts/spec.md`
 
+Create a directory and file:
+```bash
+mkdir -p prompts
 ```
-scripts/
-├── add_question.py
-├── get_next.py
-└── record_answer.py
-data/
-└── questions.txt
-```
 
-### Getting Started
-
-1. Create the directories:
-   ```bash
-   mkdir -p scripts data
-   ```
-
-2. **Work with your AI assistant** to build the three Python scripts:
-   - Ask your AI to help implement each script
-   - Keep them simple - just enough to work
-   - Don't worry about error handling, edge cases, or best practices yet
-
-   Example: "Help me write add_question.py that takes topic, question, and answer as input and appends them to data/questions.txt"
-
-3. Test manually:
-   ```bash
-   python scripts/add_question.py
-   python scripts/get_next.py
-   python scripts/record_answer.py
-   ```
-
-4. Make git commits as you go:
-   ```bash
-   git add scripts/add_question.py
-   git commit -m "add question script"
-   ```
-
-**Note**: Don't worry about perfect commit messages yet - we'll improve this in Phase 4!
-
-### What's Missing?
-
-At this stage, we have:
-- ✅ Working code
-- ❌ No formal specification
-- ❌ No tests
-- ❌ Inconsistent commit messages
-- ❌ No collaboration workflow
-
-This is intentional! We'll add these using prompts in the next phases.
-
-## Phase 2: Add Spec Infrastructure
-
-**Goal**: Create a `>spec` prompt that helps document what we've built.
-
-### The Problem
-
-We built working code, but there's no clear documentation of:
-- What the quiz app does
-- What features it should have
-- What user stories it fulfils
-
-### The Solution: `>spec` Prompt
-
-Create `prompts/spec.md` based on the CLAUDE.md template:
+Then work with your AI to create `prompts/spec.md` with these instructions:
 
 ```markdown
 # Specification Writer
@@ -197,12 +148,12 @@ When the user asks to create or update a specification, help them:
 
 2. **User Stories**
    - Format: "As a [user type], I want [goal] so that [benefit]"
-   - Create checkbox list for tracking
-   - Example: "- [ ] As a student, I want to add questions so that I can study later"
+   - Create checkbox list for tracking: - [ ] Story description
+   - Keep stories small and implementable
 
 3. **Architecture & Technical Notes**
-   - How does it work?
-   - What files are involved?
+   - How does it work (high-level)?
+   - What are the key components?
    - Any important design decisions
 
 Follow the project's chosen documentation standard for all text.
@@ -210,122 +161,46 @@ Follow the project's chosen documentation standard for all text.
 Based on README Structure Template from project standards.
 ```
 
-### Using the Prompt
+### Step 3: Use the Spec Prompt
 
-1. In conversation with your AI: `>spec`
-2. AI reads the prompt and helps you create a specification
-3. Add the spec to your README or a separate `SPEC.md` file
-4. Make a commit:
-   ```bash
-   git add prompts/spec.md README.md
-   git commit -m "add spec prompt and project specification"
-   ```
+In conversation with your AI:
 
-### Value Demonstrated
+1. Type: `>spec`
+2. Your AI will read `prompts/spec.md` (via `python prompt.py spec`)
+3. Work with your AI to create a specification for the learning app
+4. Save the spec in `SPEC.md` or add it to a project README
 
-✅ **Proper documentation** - Clear record of what the project does
-✅ **Reusable tool** - Use `>spec` in future projects
-✅ **Team communication** - Others can understand the project quickly
+The spec should include:
+- What the learning app does
+- User stories (e.g., "As a learner, I want to add questions so that I can study them later")
+- Technical approach (at high level - file-based? Database? How does spaced repetition work?)
 
-## Phase 3: Add Testing Infrastructure
+### Step 4: Commit Your Work
 
-**Goal**: Create a `>test` prompt that guides Test-Driven Development.
+Make a manual commit (we'll improve this in Phase 2):
+```bash
+git add prompts/spec.md SPEC.md
+git commit -m "add spec prompt and learning app specification"
+```
+
+**What You've Learned:**
+- ✅ How to create a prompt-command
+- ✅ How to invoke it with `>name`
+- ✅ The value of specifications (clarity before coding)
+- ✅ Writing user stories
+
+## Phase 2: Create the Commit Prompt
+
+**Goal**: Build a `>commit` prompt for consistent commit messages.
 
 ### The Problem
 
-How do we know if our code works? What if we make changes and break something?
+Your commit message "add spec prompt and learning app specification" works, but:
+- No consistent format across the project
+- Hard to generate changelogs automatically
+- Doesn't indicate type of change (feature? docs? fix?)
 
-### The Solution: `>test` Prompt + pytest
-
-1. **Create `prompts/test.md`**:
-
-```markdown
-# Test-Driven Development Guide
-
-When the user wants to test code, guide them through TDD workflow:
-
-## TDD Process
-
-1. **Write a failing test first**
-   - Define expected behaviour
-   - Test should fail (red)
-
-2. **Run the failing test**
-   - Confirm it fails as expected
-   - `pytest -v` for line-by-line output
-
-3. **Write minimal code to make it pass**
-   - Just enough to turn the test green
-   - No extra features
-
-4. **Run the passing test**
-   - Confirm it passes (green)
-   - All tests should pass
-
-5. **Refactor if needed**
-   - Clean up code
-   - Maintain test coverage
-
-6. **Run tests again**
-   - Ensure refactoring didn't break anything
-
-## Testing Principles
-
-- Test edge cases and error conditions
-- Clear test names that read like documentation
-- One test per behaviour
-- Fast, independent tests
-
-Use pytest for testing Python code.
-
-Based on TDD workflow from project standards.
-```
-
-2. **Install pytest**:
-   ```bash
-   pip install pytest
-   ```
-
-3. **Create `tests/` directory**:
-   ```bash
-   mkdir tests
-   ```
-
-4. **Use `>test` to add tests**:
-   - In conversation: `>test`
-   - AI guides you through writing tests for existing scripts
-   - Run: `pytest -v` to see line-by-line pass/fail
-
-### Example Test
-
-```python
-# tests/test_add_question.py
-def test_add_question_creates_file():
-    # Test that add_question creates data file
-    # ...
-```
-
-### Value Demonstrated
-
-✅ **Confidence in changes** - Know when something breaks
-✅ **Better design** - Writing tests reveals design issues
-✅ **Documentation** - Tests show how code should work
-✅ **Reusable process** - Use `>test` for all future code
-
-## Phase 4: Add Commit Infrastructure
-
-**Goal**: Create a `>commit` prompt for consistent commit messages.
-
-### The Problem
-
-Looking at our git history, we see inconsistent commit messages:
-- "add question script"
-- "fixed bug"
-- "updates"
-
-These don't follow any standard and aren't very informative.
-
-### The Solution: `>commit` Prompt + Conventional Commits
+### The Solution: Conventional Commits
 
 Create `prompts/commit.md`:
 
@@ -368,89 +243,75 @@ When the user wants to make a commit, help them create a properly formatted comm
 Based on Conventional Commits specification from project standards.
 ```
 
-### Using the Prompt
+### Using the Commit Prompt
 
-1. In conversation: `>commit`
-2. AI helps you create a properly formatted commit message
-3. Make the commit:
-   ```bash
-   git add .
-   git commit -m "feat(test): add test infrastructure with pytest"
-   ```
+From now on, when making commits:
 
-### Value Demonstrated
+1. Type: `>commit`
+2. Your AI will help you format the commit message
+3. Make the commit with the formatted message
 
-✅ **Clear history** - Understand what changed and why
-✅ **Automated tools** - Conventional commits enable changelog generation
-✅ **Team standards** - Everyone commits the same way
-✅ **Future reference** - Easy to find specific types of changes
-
-## Phase 5: Add PR Infrastructure (Optional)
-
-**Goal**: Create a `>pr` prompt for streamlined pull requests.
-
-### The Problem
-
-Creating pull requests involves:
-- Writing a summary of changes
-- Describing what was tested
-- Linking to relevant issues or user stories
-
-This is repetitive and easy to forget steps.
-
-### The Solution: `>pr` Prompt
-
-Create `prompts/pr.md`:
-
-```markdown
-# Pull Request Creator
-
-When the user wants to create a pull request, help them:
-
-1. **Review changes**
-   - Run: \`git diff main...HEAD\`
-   - Summarise what changed
-
-2. **Create PR title**
-   - Follow conventional commit format
-   - Be descriptive but concise
-
-3. **Write PR body**
-   - Summary of changes (bullet points)
-   - What was tested
-   - Link to user stories or issues
-
-4. **Create the PR**
-   - Use: \`gh pr create --title "..." --body "..."\`
-   - Include summary and test plan
-
-## Template
-
-\`\`\`markdown
-## Summary
-- Added X feature
-- Fixed Y bug
-- Updated Z documentation
-
-## Testing
-- [ ] Unit tests pass (\`pytest -v\`)
-- [ ] Manual testing completed
-- [ ] Documentation updated
-
-## Related
-- Closes #issue-number
-- Implements user story: ...
-\`\`\`
-
-Based on PR process from project standards.
+Example:
+```bash
+git add prompts/commit.md
+# Use >commit prompt to create message
+git commit -m "feat(prompts): add conventional commits helper"
 ```
 
-### Value Demonstrated
+**What You've Learned:**
+- ✅ Conventional commits format
+- ✅ How prompts solve workflow problems
+- ✅ Building your prompt infrastructure iteratively
 
-✅ **Complete PRs** - Never forget important details
-✅ **Faster reviews** - Reviewers have all context
-✅ **Consistent format** - All PRs look the same
-✅ **Reusable across projects** - Same prompt works everywhere
+## Phase 3: Build the Learning App
+
+**Goal**: Implement the specification, one user story at a time.
+
+### The Approach
+
+Now you have:
+- ✅ A specification (what to build)
+- ✅ User stories (features to implement)
+- ✅ A commit prompt (for clean history)
+
+**Work with your AI to:**
+
+1. **Pick the first user story** from your spec
+2. **Discuss implementation approach** (How will you solve this?)
+3. **Write the code** (Let your AI help, but you decide the approach)
+4. **Test manually** (Run it, make sure it works)
+5. **Commit using `>commit`** (Clean commit message)
+6. **Move to next story**
+
+### Example User Story: Add Questions
+
+If your first story is: "As a learner, I want to add questions so I can study them later"
+
+**Work with your AI:**
+- Where should questions be stored? (Text file? JSON? CSV?)
+- What information does each question need? (Topic, question text, answer)
+- How should the interface work? (Command-line arguments? Interactive prompts?)
+
+**Don't prescribe:** "Create add_question.py that takes sys.argv..."
+
+**Instead:** "Let's implement the ability to add questions. What do you think is the best approach?"
+
+### Iterate Through Stories
+
+Continue implementing user stories until you have a working learning app.
+
+**Use `>commit` for each story:**
+```bash
+>commit
+# AI helps create: "feat(quiz): add ability to add new questions"
+git commit -m "feat(quiz): add ability to add new questions"
+```
+
+**What You've Learned:**
+- ✅ Spec-driven development
+- ✅ Iterative implementation (one story at a time)
+- ✅ Working collaboratively with AI
+- ✅ Using your prompt infrastructure
 
 ## What's Next?
 
@@ -458,26 +319,23 @@ Based on PR process from project standards.
 
 By completing this workshop, you now have:
 
-1. **A working quiz tool** - With spaced repetition and topic filtering
-2. **Four reusable prompts**:
+1. **A working learning app** - Built following a proper spec
+2. **Two reusable prompts**:
    - `>spec` - Create specifications and user stories
-   - `>test` - Guide TDD workflow
    - `>commit` - Format conventional commits
-   - `>pr` - Create pull requests
 
-3. **Understanding of prompt-commands**:
-   - How to create them
-   - When to use them
-   - Why they're valuable
+3. **Understanding of:**
+   - Spec-driven development (requirements before code)
+   - User stories (breaking down features)
+   - Platform-agnostic tools (work with any AI)
+   - Proper development workflow
 
 ### Using Your Prompts in Other Projects
 
-These prompts aren't just for the quiz app! Copy the `prompts/` directory to any project and use:
+These prompts aren't just for the learning app! Copy the `prompts/` directory to any project and use:
 
 - `>spec` when starting new projects
-- `>test` when writing any code
 - `>commit` for every commit
-- `>pr` for every pull request
 
 They work with any AI assistant because they're plain markdown.
 
@@ -492,4 +350,4 @@ For example:
 
 ---
 
-**Ready to build?** Start with Phase 1 and create your minimum viable quiz app!
+**Ready to build?** Start with Phase 1: Create the Specification.
