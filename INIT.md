@@ -26,26 +26,35 @@ When helping users through this workshop, you MUST NOT use platform-specific fea
 - ❌ Built-in `/test` command → ✅ Create `prompts/test.md`
 - ❌ Platform-specific config files → ✅ Documentation in README
 
-###Prompt-Command Convention
+### Prompt-Command Convention
 
 This workshop uses a simple convention for invoking prompts:
 
 **When you see `>name` in conversation:**
 
-1. Look for `prompts/name.md` OR `prompts/name/PROMPT.md`
-2. Read that file completely
-3. Follow the instructions in that file
+1. Run: `python prompt.py name`
+2. Read the output (it contains the prompt contents or an error message)
+3. Follow the instructions in the prompt
 4. Load any supporting files referenced in the prompt
 
-**This is a user-defined convention, not a built-in feature of any AI platform.**
+**This is a user-defined convention implemented via prompt.py, not a built-in feature of any AI platform.**
+
+The `prompt.py` script handles all the lookup logic:
+- Checks for `prompts/name.md` (simple prompt)
+- Checks for `prompts/name/PROMPT.md` (complex prompt)
+- Returns helpful error messages if prompt doesn't exist
+- Lists available prompts when a prompt isn't found
 
 Examples:
-- `>spec` → Read and follow `prompts/spec.md`
-- `>test` → Read and follow `prompts/test.md`
-- `>commit` → Read and follow `prompts/commit.md`
-- `>quiz` → Read and follow `prompts/quiz/PROMPT.md` (directory-based prompt)
+- `>spec` → Run `python prompt.py spec` and follow the output
+- `>test` → Run `python prompt.py test` and follow the output
+- `>commit` → Run `python prompt.py commit` and follow the output
 
-If a prompt file doesn't exist yet, tell the user. Don't assume built-in commands exist.
+**Useful commands:**
+- `python prompt.py --list` → See all available prompts
+- `python prompt.py --validate` → Check all prompts are valid
+
+If a prompt doesn't exist, prompt.py will tell you which prompts are available. Don't assume built-in commands exist.
 
 ### Next Steps
 
