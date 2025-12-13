@@ -21,10 +21,22 @@ INIT.md contains all the bootstrap instructions your AI needs, including:
 
 Before starting this workshop, you should have:
 
-- **Python installed** (version 3.8 or later)
+- **Python 3.8 or later** - See verification steps below
 - **Git basics** (clone, commit, branch)
 - **Basic command-line knowledge**
 - **An AI coding assistant** (Claude Code, Aider, Cursor, etc.)
+
+### Verify Python Installation
+
+Ask for help to verify Python is installed and working:
+
+1. Check if Python is available and which version:
+   ```bash
+   python3 --version
+   ```
+   If this doesn't work, you may want to try `python --version` instead or ask for help.
+
+2. If Python 3 is not installed, ask for help: "How do I install Python 3 on my system?"
 
 ### Documentation Standard
 
@@ -41,7 +53,7 @@ Before you start, choose a documentation language standard for your project. Thi
 - **Simple English**: Short sentences, common words, minimal jargon
 - **Technical**: Formal, precise, domain-specific terminology
 
-**Your task**: Choose one and stick with it throughout the workshop. When you create prompts in later phases, your AI will follow whatever standard you establish in your documentation.
+**Your task**: Choose one and stick with it throughout the workshop. The prompts you create will use whatever standard you establish in your documentation.
 
 ## What Are Prompt-Commands?
 
@@ -66,10 +78,10 @@ Prompt-commands are plain markdown files that tell your AI assistant what to do.
 
 1. You create a prompt file: `prompts/commit.md`
 2. You invoke it in conversation: `>commit`
-3. Your AI runs `python prompt.py commit` to read the prompt
-4. Your AI follows the instructions in the prompt
+3. The prompt.py script is run to read the prompt
+4. The instructions in the prompt are followed
 
-The `prompt.py` utility handles finding and reading prompts automatically.
+The `prompt.py` utility handles finding and reading prompts automatically. If you need help running Python scripts on your system, ask for help.
 
 ### Why Use Prompt-Commands?
 
@@ -113,7 +125,7 @@ You want to build a **spaced repetition learning tool** that helps you study any
 - Directory structure
 - Implementation approach
 
-You and your AI will figure these out while following the spec you create.
+You'll figure these out while following the spec you create.
 
 ## Phase 1: Create the Specification
 
@@ -127,19 +139,24 @@ A specification:
 - Provides architecture notes (technical decisions)
 - Serves as the contract for development
 
-### Step 2: Create `prompts/spec.md`
+### Step 2: Create the Prompts Directory
 
-Create a directory and file:
+**Create the directory where prompts will live:**
+
 ```bash
 mkdir -p prompts
 ```
 
-Then work with your AI to create `prompts/spec.md` with these instructions:
+All your prompt-commands will go in this directory.
+
+### Step 3: Create `prompts/spec.md`
+
+Create the file `prompts/spec.md` with the following content:
 
 ```markdown
 # Specification Writer
 
-When the user asks to create or update a specification, help them:
+When the user asks to create or update a specification, help them create a spec and save it to `SPEC.md`:
 
 1. **Project Specification**
    - High-level project goals
@@ -158,24 +175,35 @@ When the user asks to create or update a specification, help them:
 
 Follow the project's chosen documentation standard for all text.
 
+Save the completed specification to `SPEC.md` in the project root.
+
 Based on README Structure Template from project standards.
 ```
 
-### Step 3: Use the Spec Prompt
+### Step 4: Verify the Prompt Works
 
-In conversation with your AI:
+Test that your prompt-command is working:
+
+1. Type: `>`
+2. You should see `spec` in the list of available prompts
+
+If something went wrong, ask for help.
+
+### Step 5: Use the Spec Prompt
+
+In conversation:
 
 1. Type: `>spec`
-2. Your AI will read `prompts/spec.md` (via `python prompt.py spec`)
-3. Work with your AI to create a specification for the learning app
-4. Save the spec in `SPEC.md` or add it to a project README
+2. Follow the prompts to create a specification for the learning app
 
 The spec should include:
 - What the learning app does
 - User stories (e.g., "As a learner, I want to add questions so that I can study them later")
 - Technical approach (at high level - file-based? Database? How does spaced repetition work?)
 
-### Step 4: Commit Your Work
+The `>spec` prompt will guide you through creating and saving the specification.
+
+### Step 6: Commit Your Work
 
 Make a manual commit (we'll improve this in Phase 2):
 ```bash
@@ -202,12 +230,16 @@ Your commit message "add spec prompt and learning app specification" works, but:
 
 ### The Solution: Conventional Commits
 
-Create `prompts/commit.md`:
+Work to create `prompts/commit.md` with the following content:
 
 ```markdown
 # Conventional Commits Helper
 
-When the user wants to make a commit, help them create a properly formatted commit message.
+When the user wants to make a commit:
+
+1. Review what files have changed (ask user or check git status)
+2. Understand what the changes do
+3. Propose a properly formatted commit message following the format below
 
 ## Format
 
@@ -243,18 +275,21 @@ When the user wants to make a commit, help them create a properly formatted comm
 Based on Conventional Commits specification from project standards.
 ```
 
-### Using the Commit Prompt
+### Verify and Use the Commit Prompt
 
-From now on, when making commits:
+1. Type: `>` to verify both prompts are now available
+2. You should see both `spec` and `commit` in the list
+
+Now test the commit prompt:
 
 1. Type: `>commit`
-2. Your AI will help you format the commit message
-3. Make the commit with the formatted message
+2. Follow the guidance to format your commit message
+3. Make the commit
 
 Example:
 ```bash
 git add prompts/commit.md
-# Use >commit prompt to create message
+# Then use >commit to create the message
 git commit -m "feat(prompts): add conventional commits helper"
 ```
 
@@ -274,11 +309,11 @@ Now you have:
 - ✅ User stories (features to implement)
 - ✅ A commit prompt (for clean history)
 
-**Work with your AI to:**
+**The iterative process:**
 
 1. **Pick the first user story** from your spec
 2. **Discuss implementation approach** (How will you solve this?)
-3. **Write the code** (Let your AI help, but you decide the approach)
+3. **Write the code** (Collaborate on the implementation)
 4. **Test manually** (Run it, make sure it works)
 5. **Commit using `>commit`** (Clean commit message)
 6. **Move to next story**
@@ -287,14 +322,14 @@ Now you have:
 
 If your first story is: "As a learner, I want to add questions so I can study them later"
 
-**Work with your AI:**
+**Questions to discuss:**
 - Where should questions be stored? (Text file? JSON? CSV?)
 - What information does each question need? (Topic, question text, answer)
 - How should the interface work? (Command-line arguments? Interactive prompts?)
 
-**Don't prescribe:** "Create add_question.py that takes sys.argv..."
-
-**Instead:** "Let's implement the ability to add questions. What do you think is the best approach?"
+**Collaborative approach:**
+- ❌ Don't prescribe: "Create add_question.py that takes sys.argv..."
+- ✅ Discuss instead: "Let's implement the ability to add questions. What's the best approach?"
 
 ### Iterate Through Stories
 
@@ -303,7 +338,8 @@ Continue implementing user stories until you have a working learning app.
 **Use `>commit` for each story:**
 ```bash
 >commit
-# AI helps create: "feat(quiz): add ability to add new questions"
+# This will propose a formatted message like:
+# "feat(quiz): add ability to add new questions"
 git commit -m "feat(quiz): add ability to add new questions"
 ```
 

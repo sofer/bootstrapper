@@ -143,10 +143,22 @@ def validate_prompts():
 def main():
     """Main entry point."""
     if len(sys.argv) < 2:
-        print("Usage: python prompt.py <name>")
-        print("       python prompt.py --list")
-        print("       python prompt.py --validate")
-        sys.exit(1)
+        # No argument provided - show list of prompts
+        prompts = list_prompts()
+        if prompts:
+            print("Available prompts:")
+            for name in prompts:
+                prompt_path = find_prompt(name)
+                prompt_type = "simple" if prompt_path.name.endswith(f"{name}.md") else "complex"
+                print(f"  - {name} ({prompt_type})")
+            print("\nUse: prompt.py <name> to read a prompt")
+        else:
+            print("No prompts found.")
+            print("\nCreate a prompt with:")
+            print("  mkdir -p prompts")
+            print("  echo 'Your instructions here' > prompts/example.md")
+            print("\nThen invoke with: >example")
+        sys.exit(0)
 
     arg = sys.argv[1]
 
