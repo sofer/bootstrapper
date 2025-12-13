@@ -11,15 +11,22 @@ Before starting this workshop, you should have:
 - **Basic command-line knowledge**
 - **An AI coding assistant** (Claude Code, Aider, Cursor, etc.)
 
-### Documentation Standard: British English
+### Documentation Standard
 
-Throughout this workshop, we'll use **British English** for all documentation, comments, and user-facing text. This includes:
+Before you start, choose a documentation language standard for your project. This ensures consistency across all your documentation, comments, and user-facing text.
 
-- British spellings: "organise" not "organize", "colour" not "color"
-- British terminology: "whilst" not "while", "amongst" not "among"
-- Consistent voice: Clear and accessible to both technical and non-technical readers
+**Why this matters:**
+- Consistent documentation is easier to read and maintain
+- AI assistants work better with clear, consistent instructions
+- Platform-agnostic - works with any AI tool
 
-This is a simple convention that ensures consistency across projects and teams.
+**Examples of documentation standards:**
+- **British English**: "organise", "colour", "whilst"
+- **American English**: "organize", "color", "while"
+- **Simple English**: Short sentences, common words, minimal jargon
+- **Technical**: Formal, precise, domain-specific terminology
+
+**Your task**: Choose one and stick with it throughout the workshop. When you create prompts in later phases, your AI will follow whatever standard you establish in your documentation.
 
 ## What Are Prompt-Commands?
 
@@ -183,7 +190,7 @@ When the user asks to create or update a specification, help them:
    - What files are involved?
    - Any important design decisions
 
-Use British English for all documentation.
+Follow the project's chosen documentation standard for all text.
 
 Based on README Structure Template from project standards.
 ```
