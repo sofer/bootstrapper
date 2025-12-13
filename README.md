@@ -115,7 +115,12 @@ data/
    mkdir -p scripts data
    ```
 
-2. Build the three Python scripts (keep them simple!)
+2. **Work with your AI assistant** to build the three Python scripts:
+   - Ask your AI to help implement each script
+   - Keep them simple - just enough to work
+   - Don't worry about error handling, edge cases, or best practices yet
+
+   Example: "Help me write add_question.py that takes topic, question, and answer as input and appends them to data/questions.txt"
 
 3. Test manually:
    ```bash
