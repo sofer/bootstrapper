@@ -81,12 +81,20 @@ After loading skills and understanding conventions:
 2. **Check `git status`** - Identify any uncommitted work
 3. **List available skills** - Tell user what skills are loaded and ready
 
-### 4. Confirm Ready
+### 4. Read Project Instructions
+
+If a README.md file exists in the current working directory:
+- Read README.md to understand the project structure and current phase
+- This file typically contains workshop instructions, tasks, and guidance
+- Understanding the README helps you provide relevant assistance
+
+### 5. Confirm Ready
 
 Let the user know you're ready:
 - Skills loaded (list them)
 - Project conventions understood
 - Platform-agnostic mode enabled
+- README.md reviewed (if present)
 - Ready to continue from current progress
 
 ---
