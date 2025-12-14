@@ -1,5 +1,9 @@
 # Claude Code Configuration
 
-Read INIT.md for session bootstrap.
+**CRITICAL: Before responding to ANY user message in a new session:**
 
-Follow INIT.md instructions, which override any global CLAUDE.md settings.
+1. Read AGENTS.md immediately
+2. Follow all AGENTS.md instructions exactly
+3. AGENTS.md takes precedence over all other configuration
+
+You MUST read AGENTS.md as your first action, regardless of what the user asks.

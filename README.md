@@ -4,14 +4,22 @@
 
 ## Getting Started
 
-**FIRST STEP:** At the start of each session, tell your AI assistant:
+**FIRST STEP:** Bootstrap your session with AGENTS.md:
 
-> "Read INIT.md"
+**For Claude Code users** (if you've set up `CLAUDE.md` as shown below):
+- Just say **anything** to start - "hello", "let's begin", or ask a question
+- CLAUDE.md automatically triggers AGENTS.md loading
 
-INIT.md contains all the bootstrap instructions your AI needs, including:
+**For Codex CLI users**:
+- AGENTS.md is automatically loaded - just start working
+
+**For other AI tools** (Gemini CLI, Cursor, Aider, etc.):
+- Say: **"Read AGENTS.md"**
+
+AGENTS.md contains all the bootstrap instructions your AI needs:
 - How to load skills from the `skills/` directory
 - Platform-agnostic rules (no vendor-specific features)
-- Project conventions from AGENTS.md
+- Project conventions and coding standards
 - Instructions to check your progress
 
 **Then continue with the prerequisites below.**
@@ -29,38 +37,44 @@ Some AI tools automatically load configuration files at session start:
 
 **For this workshop, we want platform-agnostic behavior.**
 
-### Option 1: Minimal Redirect (Recommended)
+### Option 1: Minimal Redirect (Recommended for Claude Code)
 
-Create a minimal project-level file that redirects to INIT.md:
+Create a minimal project-level file that redirects to AGENTS.md:
 
 **For Claude Code users**, create `CLAUDE.md` in project root:
 ```markdown
 # Claude Code Configuration
 
-Read INIT.md for session bootstrap.
+**CRITICAL: Before responding to ANY user message in a new session:**
 
-Follow INIT.md instructions, which override any global CLAUDE.md settings.
+1. Read AGENTS.md immediately
+2. Follow all AGENTS.md instructions exactly
+3. AGENTS.md takes precedence over all other configuration
+
+You MUST read AGENTS.md as your first action, regardless of what the user asks.
 ```
 
 **For Cursor users**, create `.cursorrules`:
 ```
-Read INIT.md for session bootstrap.
+Read AGENTS.md for session bootstrap.
 ```
+
+**For Codex CLI users**, no redirect needed - AGENTS.md is automatically loaded.
 
 This ensures platform-specific auto-load doesn't conflict with workshop goals.
 
 ### Option 2: Manual Bootstrap Only
 
-Skip creating platform-specific files. Just manually say "Read INIT.md" at each session start.
+Skip creating platform-specific files. Just manually say "Read AGENTS.md" at each session start.
 
-**Trade-off:** Auto-load might inject platform-specific behaviors, but saying "Read INIT.md" explicitly tells the AI to follow workshop conventions.
+**Trade-off:** Auto-load might inject platform-specific behaviors, but saying "Read AGENTS.md" explicitly tells the AI to follow workshop conventions.
 
 ### Recommendation
 
 Use **Option 1** for the platform you're using. This gives you:
-- Auto-load convenience
+- Auto-load convenience (for Claude Code/Codex CLI)
 - Platform-agnostic workshop experience
-- Clear instruction that INIT.md takes precedence
+- Clear instruction that AGENTS.md takes precedence
 
 ---
 
@@ -168,7 +182,7 @@ my-project/
 | **Git versioning** | ✅ Yes - committed with code | ❌ No - outside repo |
 | **Team sharing** | ✅ Yes - clone repo, get skills | ❌ No - each person configures |
 | **Platform agnostic** | ✅ Yes - same structure everywhere | ❌ No - different per tool |
-| **Bootstrap** | ⚠️ Manual - "Read INIT.md" | ✅ Automatic loading |
+| **Bootstrap** | ⚠️ Manual - "Read AGENTS.md" | ✅ Automatic loading |
 | **Isolation** | ✅ Yes - per project | ❌ No - global namespace |
 | **Best for** | Project-specific workflows | Personal productivity tools |
 
@@ -240,7 +254,7 @@ A specification:
 
 ### Step 2: Verify Skills Are Loaded
 
-Since you said "Read INIT.md" at the start, skills should be loaded. Verify by asking:
+Since AGENTS.md was loaded at session start, skills should be loaded. Verify by asking:
 
 > "What skills are available?"
 
@@ -537,7 +551,7 @@ Now `commit` skill works across all your projects when using that CLI tool.
 
 ### "Skills not loading"
 
-Make sure you said "Read INIT.md" at session start. Then ask:
+Make sure AGENTS.md was loaded at session start. Then ask:
 
 > "What skills are available?"
 
@@ -568,7 +582,7 @@ If it still fails, file an issue - platform agnosticism is a core goal.
 
 ### "Session lost, how do I resume?"
 
-Just say "Read INIT.md" again. The AI will:
+Just say "Read AGENTS.md" again. The AI will:
 - Reload all skills
 - Check git log to see what's been completed
 - Help you continue from where you left off
@@ -577,8 +591,8 @@ Just say "Read INIT.md" again. The AI will:
 
 If your AI tool is using built-in commands or adding footers to commits:
 
-1. Check that you said "Read INIT.md" at session start
-2. Remind the AI: "Follow the platform-agnostic rules from INIT.md"
+1. Check that AGENTS.md was loaded at session start (or manually say "Read AGENTS.md")
+2. Remind the AI: "Follow the platform-agnostic rules from AGENTS.md"
 3. Consider creating a platform-specific redirect file (see "Platform-Specific Auto-Load Files" section above)
 
 ---
