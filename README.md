@@ -293,71 +293,30 @@ Once created, read through `SPEC.md` and make sure it:
 
 ### Step 5: Commit Your Work
 
-We'll make a manual commit first to understand the format, then automate it with the commit skill in Phase 2:
-
-```bash
-git add SPEC.md
-git commit -m "docs: add learning app specification"
-```
-
-**Note:** You just formatted a Conventional Commit manually. In Phase 2, you'll see how the commit skill automates this.
-
-**What You've Learned:**
-- ✅ How skills work (natural language activation)
-- ✅ Using pre-built skills
-- ✅ The value of specifications (clarity before coding)
-- ✅ Writing user stories
-
-**✅ Phase 1 complete.** Ready to continue to Phase 2?
-
----
-
-## Phase 2: Use the Commit Skill
-
-**Goal**: Experience the commit skill for consistent commit messages.
-
-### The Problem
-
-Your commit message "docs: add learning app specification" works, but you had to know the Conventional Commits format. The commit skill automates this.
-
-### Use the Commit Skill
-
-From now on, whenever you want to commit, just say:
+Now use the commit skill to commit your specification:
 
 > "Commit these changes"
 
-Or:
-
-> "I want to make a commit"
-
 The AI will:
 1. Check `git status` and `git diff`
-2. Understand what changed
-3. Propose a properly formatted commit message
+2. Understand what changed (SPEC.md was created)
+3. Propose a properly formatted commit message (e.g., "docs: add learning app specification")
 4. Execute the commit after you approve
 
-### Test It
-
-Make a small change to SPEC.md (add a detail, fix a typo, etc.), then say:
-
-> "Commit this change"
-
-Watch how the commit skill:
-- Reviews your changes
-- Proposes a formatted message
-- Follows Conventional Commits format
-- Executes the commit
+This demonstrates natural language workflow automation - no need to manually format commit messages.
 
 **What You've Learned:**
-- ✅ Conventional commits format
-- ✅ How skills solve workflow problems
-- ✅ Natural language workflow automation
+- ✅ How skills work (natural language activation)
+- ✅ Using pre-built skills (spec and commit)
+- ✅ The value of specifications (clarity before coding)
+- ✅ Writing user stories
+- ✅ Conventional Commits format via commit skill
 
-**✅ Phase 2 complete.** Ready to build your own skill in Phase 3?
+**✅ Phase 1 complete.** Ready to build your own skill in Phase 2?
 
 ---
 
-## Phase 3: Build the Quiz Skill
+## Phase 2: Build the Quiz Skill
 
 **Goal**: Create your own skill that implements the quiz functionality.
 
@@ -469,7 +428,7 @@ Your AI should:
 - ✅ Working collaboratively with AI
 - ✅ Creating reusable AI capabilities
 
-**✅ Phase 3 complete. Workshop finished!**
+**✅ Phase 2 complete. Workshop finished!**
 
 ---
 
@@ -480,9 +439,9 @@ Your AI should:
 By completing this workshop, you now have:
 
 1. **A working learning app** - Built following a proper spec
-2. **Three skills**:
-   - `spec` - Create specifications (pre-built, now you understand it)
-   - `commit` - Format commits (pre-built, now you use it)
+2. **Skills mastered**:
+   - `spec` - Create specifications (pre-built)
+   - `commit` - Format commits (pre-built)
    - `quiz` - Your quiz system (you built this!)
 
 3. **Understanding of:**
