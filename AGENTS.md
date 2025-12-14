@@ -12,8 +12,9 @@ This file defines conventions for the bootstrapper workshop project, following t
 - Keep functions small and focused (single responsibility)
 
 ### Documentation
-- User chooses documentation standard at workshop start (British English, American English, Simple English, etc.)
+- **Documentation Standard**: [Not yet specified - choose British English, American English, Simple English, Technical, etc.]
 - Be consistent with chosen standard throughout the project
+- All skills, code comments, and documentation should follow this standard
 - Write clear docstrings for non-obvious functions
 - Comment only when logic isn't self-evident
 

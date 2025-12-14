@@ -100,13 +100,22 @@ Before you start, choose a documentation language standard for your project. Thi
 - **Simple English**: Short sentences, common words, minimal jargon
 - **Technical**: Formal, precise, domain-specific terminology
 
-**Your task**: Choose one and stick with it throughout the workshop. The skills you create will use whatever standard you establish in your documentation.
+**Your task**: Choose one and stick with it throughout the workshop.
+
+**Where to document your choice:**
+1. Open `AGENTS.md` in the project root
+2. Find the "Documentation" subsection under "Code Style"
+3. Replace the first bullet point with your choice (e.g., "Documentation Standard: British English")
+4. You can edit the file directly or ask your AI: "Update AGENTS.md with American English as the documentation standard"
+5. The AI will reference this when creating skills and documentation
+
+The skills you create will follow whatever standard you document in AGENTS.md.
 
 ---
 
 ## What Are Skills?
 
-Skills are reusable AI capabilities stored as markdown files. They're an emerging standard being adopted by multiple AI coding tools (Codex CLI, Gemini CLI, GitHub Copilot CLI, and others).
+Skills are reusable AI capabilities stored as markdown files. They're an emerging standard being adopted by multiple AI coding tools (Codex CLI and Gemini CLI have confirmed support, with others likely to follow).
 
 ### How Skills Work
 
@@ -270,18 +279,22 @@ Once created, read through `SPEC.md` and make sure it:
 
 ### Step 5: Commit Your Work
 
-We'll make a manual commit first (we'll use the commit skill in Phase 2):
+We'll make a manual commit first to understand the format, then automate it with the commit skill in Phase 2:
 
 ```bash
 git add SPEC.md
 git commit -m "docs: add learning app specification"
 ```
 
+**Note:** You just formatted a Conventional Commit manually. In Phase 2, you'll see how the commit skill automates this.
+
 **What You've Learned:**
 - ✅ How skills work (natural language activation)
 - ✅ Using pre-built skills
 - ✅ The value of specifications (clarity before coding)
 - ✅ Writing user stories
+
+**✅ Phase 1 complete.** Ready to continue to Phase 2?
 
 ---
 
@@ -325,6 +338,8 @@ Watch how the commit skill:
 - ✅ Conventional commits format
 - ✅ How skills solve workflow problems
 - ✅ Natural language workflow automation
+
+**✅ Phase 2 complete.** Ready to build your own skill in Phase 3?
 
 ---
 
@@ -440,6 +455,8 @@ Your AI should:
 - ✅ Working collaboratively with AI
 - ✅ Creating reusable AI capabilities
 
+**✅ Phase 3 complete. Workshop finished!**
+
 ---
 
 ## What's Next?
@@ -501,7 +518,16 @@ mkdir -p ~/.codex/skills
 cp skills/commit.md ~/.codex/skills/
 ```
 
-Now `commit` skill works across all your projects when using Codex CLI.
+**Claude Code example:**
+```bash
+# Create global skill directory
+mkdir -p ~/.claude/skills
+
+# Add personal productivity skills
+cp skills/commit.md ~/.claude/skills/
+```
+
+Now `commit` skill works across all your projects when using that CLI tool.
 
 **Trade-off**: Global skills don't sync with your team, but they're available everywhere for you personally.
 
