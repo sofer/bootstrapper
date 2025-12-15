@@ -275,6 +275,7 @@ You want to build a **spaced repetition learning tool** that helps you study any
 - Schedule questions based on how well you know them (spaced repetition)
 - Track your progress over time
 - Simple, command-line based
+- Works within your AI coding interface (no API tokens, authentication, or standalone app infrastructure needed)
 
 **Note:** We're deliberately NOT prescribing:
 - File formats
