@@ -2,6 +2,52 @@
 
 **Learn to build platform-agnostic AI development tools by solving a real problem with proper software development workflow**
 
+---
+
+## Why This Matters: Emerging Standards for AI Development
+
+The AI coding assistant ecosystem is rapidly evolving, and two key standards are emerging across different tools:
+
+### Skills - Reusable AI Capabilities
+
+**Skills** are markdown files containing instructions for AI assistants, stored in a `skills/` directory. This pattern is being adopted by multiple AI coding tools:
+- **Codex CLI** (OpenAI) - supports skills in `~/.codex/skills/` and project directories
+- **Gemini CLI** (Google) - similar skills directory approach
+- **Growing adoption** - more tools implementing this pattern
+
+Skills provide:
+- **Portability** - same skills work across different AI tools
+- **Version control** - skills stored in git alongside your code
+- **Team sharing** - everyone gets the same capabilities when cloning the repo
+- **Transparency** - see exactly what instructions the AI follows
+
+### AGENTS.md - Project Convention File
+
+**AGENTS.md** is emerging as the standard filename for project-level AI instructions that should be read at session start:
+- **Codex CLI** - automatically loads AGENTS.md
+- **Growing recognition** - other tools beginning to adopt this convention
+- **Not yet universal** - but the direction the ecosystem is heading
+
+AGENTS.md typically contains:
+- Project coding standards and conventions
+- Session bootstrap instructions
+- Tool and framework preferences
+- Commit message formats
+
+### This Workshop's Goal
+
+This workshop teaches you to set up a **portable AI development environment** that works regardless of which AI CLI tool you're using - Claude Code, Codex CLI, Gemini CLI, Cursor, Aider, or future tools.
+
+You'll learn to:
+- Create skills that work across all AI platforms
+- Use AGENTS.md for project conventions
+- Build tools your team can share through git
+- Avoid vendor lock-in by following emerging standards
+
+**The result:** Skills and workflows that work today and will continue working as the ecosystem evolves.
+
+---
+
 ## Getting Started
 
 **FIRST STEP:** Bootstrap your session with AGENTS.md:
