@@ -4,11 +4,11 @@
 
 ---
 
-## Why This Matters: Skills as an Emerging Standard
+## Skills as an emerging standard
 
 The AI coding assistant ecosystem is rapidly evolving, and **Skills** are emerging as a standard pattern across different AI tools.
 
-### What Are Skills?
+### What are Skills?
 
 **Skills** are markdown files containing instructions for AI assistants, stored in a `skills/` directory. This pattern is being adopted by multiple AI coding tools:
 - **Codex CLI** (OpenAI) - supports skills in `~/.codex/skills/` and project directories
@@ -21,7 +21,7 @@ Skills provide:
 - **Team sharing** - everyone gets the same capabilities when cloning the repo
 - **Transparency** - see exactly what instructions the AI follows
 
-### AGENTS.md - Naming Convention for Session Bootstrap
+### AGENTS.md - naming convention for session bootstrap
 
 **AGENTS.md** is also emerging as a naming convention for the initial instructions that bootstrap an AI coding interface at the start of a session:
 - **Codex CLI** - automatically loads AGENTS.md at session start
@@ -34,9 +34,9 @@ AGENTS.md typically contains session bootstrap instructions plus project convent
 - Tool and framework preferences
 - Commit message formats
 
-### This Workshop's Goal
+### Workshop goal
 
-This workshop teaches you to set up a **portable AI development environment** that works regardless of which AI CLI tool you're using - Claude Code, Codex CLI, Gemini CLI, Cursor, Aider, or future tools.
+This workshop teaches you to set up a portable AI development environment that works regardless of which AI CLI tool you're using - Claude Code, Codex CLI, Gemini CLI, Cursor, Aider, or future tools.
 
 You'll learn to:
 - Create skills that work across all AI platforms
@@ -44,13 +44,13 @@ You'll learn to:
 - Build tools your team can share through git
 - Avoid vendor lock-in by following emerging standards
 
-**The result:** Skills and workflows that work today and will continue working as the ecosystem evolves.
+The result: Skills and workflows that work today and will continue working as the ecosystem evolves.
 
 ---
 
-## Getting Started
+## Getting started
 
-**FIRST STEP:** Bootstrap your session with AGENTS.md:
+First step: Bootstrap your session with AGENTS.md:
 
 **For Claude Code users** (if you've set up `CLAUDE.md` as shown below):
 - Just say **anything** to start - "hello", "let's begin", or ask a question
@@ -68,11 +68,11 @@ AGENTS.md contains all the bootstrap instructions your AI needs:
 - Project conventions and coding standards
 - Instructions to check your progress
 
-**Then continue with the prerequisites below.**
+Then continue with the prerequisites below.
 
 ---
 
-## Platform-Specific Auto-Load Files
+## Platform-specific auto-load files
 
 Some AI tools automatically load configuration files at session start:
 
@@ -81,9 +81,9 @@ Some AI tools automatically load configuration files at session start:
 - **Windsurf**: Loads `.windsurfrules` files
 - **Codex CLI**: Uses `/init` to create `AGENTS.md`
 
-**For this workshop, we want platform-agnostic behavior.**
+For this workshop, we want platform-agnostic behavior.
 
-### Option 1: Minimal Redirect (Recommended for Claude Code)
+### Option 1: minimal redirect (recommended for Claude Code)
 
 Create a minimal project-level file that redirects to AGENTS.md:
 
@@ -109,7 +109,7 @@ Read AGENTS.md for session bootstrap.
 
 This ensures platform-specific auto-load doesn't conflict with workshop goals.
 
-### Option 2: Manual Bootstrap Only
+### Option 2: manual bootstrap only
 
 Skip creating platform-specific files. Just manually say "Read AGENTS.md" at each session start.
 
@@ -133,7 +133,7 @@ Before starting this workshop, you should have:
 - **Basic command-line knowledge**
 - **An AI coding assistant** (Claude Code, Cursor, Aider, Codex CLI, Gemini CLI, GitHub Copilot CLI, etc.)
 
-### Verify Python Installation
+### Verify Python installation
 
 Ask for help to verify Python is installed and working:
 
@@ -145,24 +145,24 @@ Ask for help to verify Python is installed and working:
 
 2. If Python 3 is not installed, ask for help: "How do I install Python 3 on my system?"
 
-### Documentation Standard
+### Documentation standard
 
 Before you start, choose a documentation language standard for your project. This ensures consistency across all your documentation, comments, and user-facing text.
 
-**Why this matters:**
+Why this matters:
 - Consistent documentation is easier to read and maintain
 - AI assistants work better with clear, consistent instructions
 - Platform-agnostic - works with any AI tool
 
-**Examples of documentation standards:**
+Examples of documentation standards:
 - **British English**: "organise", "colour", "whilst"
 - **American English**: "organize", "color", "while"
 - **Simple English**: Short sentences, common words, minimal jargon
 - **Technical**: Formal, precise, domain-specific terminology
 
-**Your task**: Choose one and stick with it throughout the workshop.
+Your task: Choose one and stick with it throughout the workshop.
 
-**Where to document your choice:**
+Where to document your choice:
 1. Open `AGENTS.md` in the project root
 2. Find the "Documentation" subsection under "Code Style"
 3. Replace the first bullet point with your choice (e.g., "Documentation Standard: British English")
@@ -173,11 +173,11 @@ The skills you create will follow whatever standard you document in AGENTS.md.
 
 ---
 
-## What Are Skills?
+## What are Skills?
 
 Skills are reusable AI capabilities stored as markdown files. They're an emerging standard being adopted by multiple AI coding tools (Codex CLI and Gemini CLI have confirmed support, with others likely to follow).
 
-### How Skills Work
+### How Skills work
 
 1. **Stored as markdown files** with YAML frontmatter:
    ```yaml
@@ -208,7 +208,7 @@ Skills are reusable AI capabilities stored as markdown files. They're an emergin
 - **No lock-in**: Not dependent on any single AI vendor
 - **Emerging standard**: Aligns with industry patterns
 
-### Project-Specific vs. Global Skills
+### Project-specific vs. global Skills
 
 This workshop teaches **project-specific skills** stored in your repository:
 
@@ -232,24 +232,24 @@ my-project/
 | **Isolation** | ✅ Yes - per project | ❌ No - global namespace |
 | **Best for** | Project-specific workflows | Personal productivity tools |
 
-**Why we teach project-specific:**
+Why we teach project-specific:
 - Skills are part of your project's development workflow
 - Team members automatically get the same skills
 - Works identically across all AI platforms
 - Skills evolve with the project through git
 
-**When to use global:**
+When to use global:
 - Personal productivity skills used across all projects
 - IDE-specific customizations
 - Individual preferences not shared with team
 
 ---
 
-## Workshop Overview
+## Workshop overview
 
-This workshop teaches software development workflow while building AI skills:
+This workshop teaches software development workflow while building AI skills.
 
-**The Approach:**
+The approach:
 1. Start with a problem
 2. Write a specification (using pre-built spec skill)
 3. Break into user stories
@@ -265,11 +265,11 @@ By the end, you'll have:
 
 ---
 
-## The Problem
+## The problem
 
 You want to build a **spaced repetition learning tool** that helps you study any topic effectively.
 
-**Requirements (high-level):**
+Requirements (high-level):
 - Add questions on any topic
 - Test yourself with those questions
 - Schedule questions based on how well you know them (spaced repetition)
@@ -277,7 +277,7 @@ You want to build a **spaced repetition learning tool** that helps you study any
 - Simple, command-line based
 - Works within your AI coding interface (no API tokens, authentication, or standalone app infrastructure needed)
 
-**Note:** We're deliberately NOT prescribing:
+Note: We're deliberately NOT prescribing:
 - File formats
 - Script names
 - Directory structure
@@ -287,11 +287,11 @@ You'll figure these out while following the spec you create.
 
 ---
 
-## Phase 1: Create the Specification
+## Phase 1: create the specification
 
-**Goal**: Use the pre-built `spec` skill to create a formal specification.
+Goal: Use the pre-built `spec` skill to create a formal specification.
 
-### Step 1: Understand What a Spec Does
+### Step 1: understand what a spec does
 
 A specification:
 - Defines **what** the system does (not how)
@@ -299,7 +299,7 @@ A specification:
 - Provides architecture notes (technical decisions)
 - Serves as the contract for development
 
-### Step 2: Verify Skills Are Loaded
+### Step 2: verify Skills are loaded
 
 Since AGENTS.md was loaded at session start, skills should be loaded. Verify by asking:
 
@@ -309,7 +309,7 @@ You should see:
 - `spec` - Create project specifications
 - `commit` - Format commit messages
 
-### Step 3: Use the Spec Skill
+### Step 3: use the spec skill
 
 Just talk naturally. Say:
 
@@ -330,7 +330,7 @@ Work with the AI to define:
 - User stories (e.g., "As a learner, I want to add questions so that I can study them later")
 - Technical approach (at high level - file-based? Database? How does spaced repetition work?)
 
-### Step 4: Review the Specification
+### Step 4: review the specification
 
 Once created, read through `SPEC.md` and make sure it:
 - Clearly describes the project
@@ -338,7 +338,7 @@ Once created, read through `SPEC.md` and make sure it:
 - Includes technical notes
 - Follows your chosen documentation standard
 
-### Step 5: Commit Your Work
+### Step 5: commit your work
 
 Now use the commit skill to commit your specification:
 
@@ -352,31 +352,31 @@ The AI will:
 
 This demonstrates natural language workflow automation - no need to manually format commit messages.
 
-**What You've Learned:**
+What you've learned:
 - ✅ How skills work (natural language activation)
 - ✅ Using pre-built skills (spec and commit)
 - ✅ The value of specifications (clarity before coding)
 - ✅ Writing user stories
 - ✅ Conventional Commits format via commit skill
 
-**✅ Phase 1 complete.** Ready to build your own skill in Phase 2?
+Phase 1 complete. Ready to build your own skill in Phase 2?
 
 ---
 
-## Phase 2: Build the Quiz Skill
+## Phase 2: build the quiz skill
 
-**Goal**: Create your own skill that implements the quiz functionality.
+Goal: Create your own skill that implements the quiz functionality.
 
-### The Approach
+### The approach
 
 Now you have:
-- ✅ A specification (what to build)
-- ✅ User stories (features to implement)
-- ✅ The commit skill (for clean history)
+- A specification (what to build)
+- User stories (features to implement)
+- The commit skill (for clean history)
 
-**Time to build your own skill!**
+Time to build your own skill.
 
-### Step 1: Understand What the Quiz Skill Should Do
+### Step 1: understand what the quiz skill should do
 
 Based on your SPEC.md, the quiz skill should:
 - Store questions with topics and answers
@@ -385,7 +385,7 @@ Based on your SPEC.md, the quiz skill should:
 - Implement spaced repetition scheduling
 - Show progress over time
 
-### Step 2: Create the Skill File
+### Step 2: create the skill file
 
 Create `skills/quiz.md` with frontmatter:
 
@@ -400,7 +400,7 @@ description: Interactive spaced repetition quiz system. Use when user wants to a
 [Your instructions here]
 ```
 
-### Step 3: Design the Implementation
+### Step 3: design the implementation
 
 Discuss with your AI:
 - How should questions be stored? (JSON, CSV, plain text?)
@@ -408,11 +408,11 @@ Discuss with your AI:
 - How will spaced repetition be implemented? (Simple algorithm? Track review dates?)
 - What files/scripts are needed?
 
-**Collaborative approach:**
+Collaborative approach:
 - ❌ Don't prescribe: "Create quiz.py that uses sqlite..."
 - ✅ Discuss instead: "How should we store questions? What are the options?"
 
-### Step 4: Implement Iteratively
+### Step 4: implement iteratively
 
 Work through your user stories one at a time:
 
@@ -429,7 +429,7 @@ AI: [Analyzes changes, proposes: "feat(quiz): add ability to store questions"]
 AI: [Executes commit after your approval]
 ```
 
-### Step 5: Build Supporting Files
+### Step 5: build supporting files
 
 Your quiz skill might reference:
 - Python scripts for quiz logic
@@ -456,7 +456,7 @@ questions.json            # Data at project root
 
 Choose based on your needs.
 
-### Step 6: Test Your Skill
+### Step 6: test your skill
 
 Once implemented, test it:
 
@@ -468,20 +468,20 @@ Your AI should:
 3. Follow the instructions to run your quiz
 4. Use the quiz implementation you built
 
-**What You've Learned:**
+What you've learned:
 - ✅ Building custom skills
 - ✅ Spec-driven development
 - ✅ Iterative implementation (one story at a time)
 - ✅ Working collaboratively with AI
 - ✅ Creating reusable AI capabilities
 
-**✅ Phase 2 complete. Workshop finished!**
+Phase 2 complete. Workshop finished.
 
 ---
 
-## What's Next?
+## What's next?
 
-### You've Built
+### You've built
 
 By completing this workshop, you now have:
 
@@ -498,11 +498,11 @@ By completing this workshop, you now have:
    - Proper development workflow
    - Emerging industry standards
 
-### Using Your Skills in Other Projects
+### Using your Skills in other projects
 
 These skills aren't just for the learning app! Because they're in your repo:
 
-**To reuse in other projects:**
+To reuse in other projects:
 ```bash
 # Copy skills to new project
 cp -r skills/ ../my-new-project/
@@ -511,12 +511,12 @@ cp -r skills/ ../my-new-project/
 git submodule add <this-repo-url> shared-skills
 ```
 
-**To create project-specific skills:**
+To create project-specific skills:
 - Just add new `.md` files to `skills/`
 - They'll be loaded at next session bootstrap
 - Team members get them automatically via git
 
-### Understanding the Standards
+### Understanding the standards
 
 This workshop aligns with emerging industry patterns:
 
@@ -525,11 +525,11 @@ This workshop aligns with emerging industry patterns:
 - **YAML frontmatter**: Common metadata pattern across tools
 - **Conventional Commits**: Industry standard (https://www.conventionalcommits.org/)
 
-### Global Skills for Personal Productivity
+### Global Skills for personal productivity
 
 While this workshop focused on project-specific skills, you can also create **global skills** for personal use:
 
-**Codex CLI example:**
+Codex CLI example:
 ```bash
 # Create global skill directory
 mkdir -p ~/.codex/skills
@@ -538,7 +538,7 @@ mkdir -p ~/.codex/skills
 cp skills/commit.md ~/.codex/skills/
 ```
 
-**Claude Code example:**
+Claude Code example:
 ```bash
 # Create global skill directory
 mkdir -p ~/.claude/skills
@@ -549,7 +549,7 @@ cp skills/commit.md ~/.claude/skills/
 
 Now `commit` skill works across all your projects when using that CLI tool.
 
-**Trade-off**: Global skills don't sync with your team, but they're available everywhere for you personally.
+Trade-off: Global skills don't sync with your team, but they're available everywhere for you personally.
 
 ---
 
@@ -567,12 +567,12 @@ The AI should list the skills from the `skills/` directory.
 
 The `description` in the skill's frontmatter is crucial. Make it clear when the skill should be used:
 
-**Bad:**
+Bad:
 ```yaml
 description: Quiz skill
 ```
 
-**Good:**
+Good:
 ```yaml
 description: Interactive quiz system for learning. Use when user wants to add questions, take a quiz, or review learning progress.
 ```
@@ -603,4 +603,4 @@ If your AI tool is using built-in commands or adding footers to commits:
 
 ---
 
-**Ready to build?** Start with Phase 1: Create the Specification.
+Ready to build? Start with Phase 1: create the specification.
