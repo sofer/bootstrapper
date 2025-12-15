@@ -4,11 +4,11 @@
 
 ---
 
-## Why This Matters: Emerging Standards for AI Development
+## Why This Matters: Skills as an Emerging Standard
 
-The AI coding assistant ecosystem is rapidly evolving, and two key standards are emerging across different tools:
+The AI coding assistant ecosystem is rapidly evolving, and **Skills** are emerging as a standard pattern across different AI tools.
 
-### Skills - Reusable AI Capabilities
+### What Are Skills?
 
 **Skills** are markdown files containing instructions for AI assistants, stored in a `skills/` directory. This pattern is being adopted by multiple AI coding tools:
 - **Codex CLI** (OpenAI) - supports skills in `~/.codex/skills/` and project directories
@@ -21,16 +21,16 @@ Skills provide:
 - **Team sharing** - everyone gets the same capabilities when cloning the repo
 - **Transparency** - see exactly what instructions the AI follows
 
-### AGENTS.md - Project Convention File
+### AGENTS.md - Naming Convention for Session Bootstrap
 
-**AGENTS.md** is emerging as the standard filename for project-level AI instructions that should be read at session start:
-- **Codex CLI** - automatically loads AGENTS.md
-- **Growing recognition** - other tools beginning to adopt this convention
+**AGENTS.md** is also emerging as a naming convention for the initial instructions that bootstrap an AI coding interface at the start of a session:
+- **Codex CLI** - automatically loads AGENTS.md at session start
+- **Growing recognition** - other tools beginning to adopt this naming convention
 - **Not yet universal** - but the direction the ecosystem is heading
 
-AGENTS.md typically contains:
+AGENTS.md typically contains session bootstrap instructions plus project conventions:
+- How to load skills from the project's `skills/` directory
 - Project coding standards and conventions
-- Session bootstrap instructions
 - Tool and framework preferences
 - Commit message formats
 
