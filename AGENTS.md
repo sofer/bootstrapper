@@ -101,12 +101,16 @@ Let the user know you're ready:
 
 ## Code Style
 
-### Python
-- Use Python 3.8+ features
-- Follow PEP 8 style guidelines
+### General principles
 - Prefer functional style over object-oriented unless OOP clearly benefits the design
 - Use descriptive variable and function names
 - Keep functions small and focused (single responsibility)
+
+### Python (if used)
+- Use Python 3.8+ features
+- Follow PEP 8 style guidelines
+
+Note: Examples in this workshop use Python, but you can use any programming language. Update this section with your chosen language's conventions.
 
 ### Documentation
 - **Documentation Standard**: [Not yet specified - choose British English, American English, Simple English, Technical, etc.]

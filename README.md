@@ -128,22 +128,22 @@ Use **Option 1** for the platform you're using. This gives you:
 
 Before starting this workshop, you should have:
 
-- **Python 3.8 or later** - See verification steps below
+- **A programming language** - Python is used in examples, but you can use any language (JavaScript, Go, Ruby, etc.)
 - **Git basics** (clone, commit, branch)
 - **Basic command-line knowledge**
 - **An AI coding assistant** (Claude Code, Cursor, Aider, Codex CLI, Gemini CLI, GitHub Copilot CLI, etc.)
 
-### Verify Python installation
+### Language choice
 
-Ask for help to verify Python is installed and working:
+This workshop uses Python in its examples, but the patterns work with any programming language. You can:
+- Follow along with Python (recommended for beginners)
+- Adapt to your preferred language (JavaScript, Go, Ruby, etc.)
+- Ask your AI assistant to help translate examples
 
-1. Check if Python is available and which version:
-   ```bash
-   python3 --version
-   ```
-   If this doesn't work, you may want to try `python --version` instead or ask for help.
-
-2. If Python 3 is not installed, ask for help: "How do I install Python 3 on my system?"
+If using Python, verify it's installed:
+```bash
+python3 --version
+```
 
 ### Documentation standard
 
