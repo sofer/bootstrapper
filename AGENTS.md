@@ -99,6 +99,18 @@ Let the user know you're ready:
 
 ---
 
+## Architecture
+
+### Runtime environment
+
+Choose whether this application will:
+- **Run within the AI coding interface** - Application runs via natural language interaction. No API keys or separate deployment needed. AI assistant is the interface.
+- **Run as standalone application** - Traditional approach with separate deployment and UI.
+
+**Document your choice here.** Update this section based on your project's needs.
+
+---
+
 ## Code Style
 
 ### General principles
