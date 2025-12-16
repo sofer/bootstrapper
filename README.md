@@ -1,4 +1,4 @@
-# Skills-Based AI Development
+# Agent Skills bootstrapper
 
 A reference implementation showing how to build platform-agnostic AI development tools using Skills and AGENTS.md.
 
@@ -11,7 +11,7 @@ A reference implementation showing how to build platform-agnostic AI development
 - **Gemini CLI** (Google) - similar skills directory approach
 - **Growing adoption** - more tools implementing this pattern
 
-Skills enable applications that run within your AI coding interface rather than as standalone apps. This collapses the separation between development and runtime environments - a rolling back of over 50 years of GUI development and a return to the command line, with the AI assistant as the interface.
+Skills can be used to build conventional software applications, but they also enable applications that run within your AI coding interface rather than as standalone apps. This collapses the separation between development and runtime environments - a rolling back of over 50 years of GUI development and a return to the command line, with the AI assistant as the interface.
 
 Benefits:
 - Portability - same skills work across different AI tools
@@ -203,5 +203,6 @@ Skills and AGENTS.md are plain markdown - no vendor lock-in.
 ## References
 
 - [Introducing Agent Skills | Anthropic](https://www.anthropic.com/news/skills) - Original announcement from Anthropic
+- [Agent Skills Documentation | Claude](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) - Official documentation
 - [Claude Skills are awesome, maybe a bigger deal than MCP | Simon Willison](https://simonwillison.net/2025/Oct/16/claude-skills/) - October 2025 analysis
 - [OpenAI are quietly adopting skills, now available in ChatGPT and Codex CLI | Simon Willison](https://simonwillison.net/2025/Dec/12/openai-skills/) - December 2025 on Codex adoption
