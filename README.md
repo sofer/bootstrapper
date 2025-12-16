@@ -32,12 +32,15 @@ Benefits:
 
 Session bootstrap file containing:
 - **Session Bootstrap** - Instructions to load skills, enable platform-agnostic mode, check project state
+- **First-Time Setup** - Automatic configuration when using template for first time
 - **Architecture** - Runtime environment choice (within AI interface vs standalone)
 - **Code Style** - Language-agnostic coding standards
 - **Commit Format** - Conventional Commits specification
 - **Skills Documentation** - How skills work and are structured
 
 Auto-loaded by Codex CLI. Other tools require manual "Read AGENTS.md" or platform-specific redirect.
+
+On first use, AGENTS.md detects placeholder strings and triggers interactive setup to configure your project.
 
 ### CLAUDE.md
 
@@ -93,13 +96,15 @@ description: When to use this skill. AI uses this to auto-activate.
 ### Quick start
 
 1. **Use this template** - Click "Use this template" on GitHub to create your own repository
-2. **Update AGENTS.md** with your project's:
-   - Runtime environment choice (within AI interface vs standalone)
-   - Language preferences
+2. **Start your first session** - The AI will automatically detect this is a new template and guide you through configuration:
+   - Project name and description
+   - Runtime environment (AI interface vs standalone)
+   - Programming language and conventions
    - Documentation standard
-   - Coding conventions
-3. **Add/modify skills** in `skills/` for your needs
-4. **Create platform redirect** (CLAUDE.md, .cursorrules, etc.) if needed
+3. **Review and commit** - After setup, review the configured AGENTS.md and README.md, then commit
+4. **Add/modify skills** - Create skills in `skills/` for your project needs
+
+The automatic setup only runs once. Future sessions skip setup and load your configured project settings.
 
 ### Session bootstrap
 
