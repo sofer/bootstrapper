@@ -92,7 +92,7 @@ description: When to use this skill. AI uses this to auto-activate.
 
 ### Quick start
 
-1. **Clone this repo** to use as a template
+1. **Use this template** - Click "Use this template" on GitHub to create your own repository
 2. **Update AGENTS.md** with your project's:
    - Runtime environment choice (within AI interface vs standalone)
    - Language preferences
