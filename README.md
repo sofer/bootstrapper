@@ -1,4 +1,4 @@
-# Skills-Based AI Development
+# Agent Skills bootstrapper
 
 A reference implementation showing how to build platform-agnostic AI development tools using Skills and AGENTS.md.
 
@@ -11,7 +11,7 @@ A reference implementation showing how to build platform-agnostic AI development
 - **Gemini CLI** (Google) - similar skills directory approach
 - **Growing adoption** - more tools implementing this pattern
 
-Skills enable applications that run within your AI coding interface rather than as standalone apps. This collapses the separation between development and runtime environments - a rolling back of over 50 years of GUI development and a return to the command line, with the AI assistant as the interface.
+Skills can be used to build conventional software applications, but they also enable applications that run within your AI coding interface rather than as standalone apps. This collapses the separation between development and runtime environments - a rolling back of over 50 years of GUI development and a return to the command line, with the AI assistant as the interface.
 
 Benefits:
 - Portability - same skills work across different AI tools
