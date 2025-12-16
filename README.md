@@ -153,6 +153,29 @@ Document your choice in AGENTS.md.
 
 ---
 
+## Skills vs MCP servers
+
+Most useful services have command-line tools (`gh`, `aws`, `gcloud`, database clients, etc.). Skills can provide instructions for using these CLI tools, and LLMs know how to call `cli-tool --help` for self-documentation.
+
+**Token efficiency:** MCP servers load all context upfront (GitHub's MCP famously consumes tens of thousands of tokens). Skills load only when matched to user requests.
+
+**When to use Skills + CLI:**
+- Service has existing CLI tool
+- REST API accessible via `curl`
+- Token efficiency matters
+- Simple, direct access needed
+
+**When MCP might still be useful:**
+- No CLI tool exists and building one is complex
+- Real-time/streaming data where protocol helps
+- Complex authentication flows
+- Internal company APIs
+- Standardized access patterns across multiple tools
+
+For most common services, Skills wrapping existing CLI tools is simpler and more efficient.
+
+---
+
 ## Platform compatibility
 
 This pattern works with:
