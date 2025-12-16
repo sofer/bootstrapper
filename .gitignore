@@ -1,5 +1,9 @@
-# Workshop planning notes (untracked working files)
-ws*.md
+# Workshop content and architecture (not committed to workshop branches)
+ARCHITECTURE.md
+CONTENT.md
 
 # OS files
 .DS_Store
+
+# Editor temporary files
+*.swp
