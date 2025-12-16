@@ -174,3 +174,11 @@ Skills and AGENTS.md are plain markdown - no vendor lock-in.
 - **AGENTS.md**: Growing standard for project conventions
 - **YAML frontmatter**: Common metadata pattern
 - **Conventional Commits**: Industry standard (https://www.conventionalcommits.org/)
+
+---
+
+## References
+
+- [Introducing Agent Skills | Anthropic](https://www.anthropic.com/news/skills) - Original announcement from Anthropic
+- [Claude Skills are awesome, maybe a bigger deal than MCP | Simon Willison](https://simonwillison.net/2025/Oct/16/claude-skills/) - October 2025 analysis
+- [OpenAI are quietly adopting skills, now available in ChatGPT and Codex CLI | Simon Willison](https://simonwillison.net/2025/Dec/12/openai-skills/) - December 2025 on Codex adoption
