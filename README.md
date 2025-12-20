@@ -30,17 +30,29 @@ Benefits:
 
 ### AGENTS.md
 
-Session bootstrap file containing:
+**Streamlined** session bootstrap file (237 lines) containing:
 - **Session Bootstrap** - Instructions to load skills, enable platform-agnostic mode, check project state
-- **First-Time Setup** - Automatic configuration when using template for first time
 - **Architecture** - Runtime environment choice (within AI interface vs standalone)
 - **Code Style** - Language-agnostic coding standards
+- **Testing** - Framework conventions
 - **Commit Format** - Conventional Commits specification
 - **Skills Documentation** - How skills work and are structured
 
 Auto-loaded by Codex CLI. Other tools require manual "Read AGENTS.md" or platform-specific redirect.
 
-On first use, AGENTS.md detects placeholder strings and triggers interactive setup to configure your project.
+On first use, AGENTS.md detects placeholder markers and references SETUP.md for interactive configuration.
+
+### SETUP.md
+
+First-time setup guide for AI assistants. This file is only read when AGENTS.md contains placeholder markers.
+
+Contains detailed instructions for:
+- Interactive question flow (project name, language, runtime, etc.)
+- File update procedures
+- Edge case handling
+- Configuration completion
+
+Separating setup from AGENTS.md keeps the bootstrap file scannable and efficient.
 
 ### CLAUDE.md
 
@@ -118,6 +130,57 @@ The automatic setup only runs once. Future sessions skip setup and load your con
 2. Add YAML frontmatter with name and description
 3. Write instructions for the AI to follow
 4. Commit to git - team members get it automatically
+
+---
+
+## For Learners
+
+New to AI-assisted development? This template makes it easy to get started.
+
+### Starting Each Session
+
+At the start of every session with any AI coding assistant:
+
+**For Claude Code users** (if you've set up `CLAUDE.md`):
+- Just say **anything** to start - "hello", "let's begin", or ask a question
+- CLAUDE.md automatically triggers AGENTS.md loading
+
+**For Codex CLI users**:
+- AGENTS.md is automatically loaded - just start working
+- No special command needed
+
+**For other AI tools** (Gemini CLI, Cursor, Aider, etc.):
+- Say: **"Read AGENTS.md"**
+- This loads all project conventions and skills
+
+### What This Does
+
+When AGENTS.md is loaded, your AI assistant will:
+1. Load all available skills from the `skills/` directory
+2. Enable platform-agnostic mode (no vendor-specific features)
+3. Check your current progress via git
+4. List available skills
+5. Get ready to help with your project
+
+### Using Skills
+
+You don't need special syntax. Just talk naturally:
+
+- "Create a spec for a task manager app" → AI activates spec skill
+- "I want to commit these changes" → AI activates commit skill
+- "Help me add a feature" → AI uses project conventions
+
+The AI automatically matches your request to the appropriate skill based on the skill descriptions.
+
+### Session Resume
+
+Since conversations may be interrupted:
+- Git tracks completed work
+- AGENTS.md reloads all context in new sessions
+- AI checks git log to see your progress
+- You can continue from where you left off
+
+Just say "Read AGENTS.md" again (or rely on auto-load for Claude Code/Codex) to re-establish context in a new session.
 
 ---
 
