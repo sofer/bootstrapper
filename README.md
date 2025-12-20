@@ -1,6 +1,6 @@
 # Agent Skills bootstrapper
 
-A reference implementation showing how to build platform-agnostic AI development tools using Skills and AGENTS.md.
+A reference implementation showing how to build portable AI workflows using Skills and AGENTS.md. Works best for teams using multiple AI tools and projects with 3-10 well-defined skills.
 
 ---
 
@@ -11,13 +11,15 @@ A reference implementation showing how to build platform-agnostic AI development
 - **Gemini CLI** (Google) - similar skills directory approach
 - **Growing adoption** - more tools implementing this pattern
 
-Skills can be used to build conventional software applications, but they also enable applications that run within your AI coding interface rather than as standalone apps. This collapses the separation between development and runtime environments - a rolling back of over 50 years of GUI development and a return to the command line, with the AI assistant as the interface.
+Skills provide reusable AI behaviors and workflows. They can support both conventional software development and projects where natural language interaction with the AI assistant is the primary interface.
 
 Benefits:
-- Portability - same skills work across different AI tools
-- Version control - skills stored in git alongside your code
-- Team sharing - everyone gets the same capabilities when cloning the repo
-- Transparency - see exactly what instructions the AI follows
+- **Portability** - Skill content (markdown) works across different AI tools
+- **Minimal integration** - One redirect file per tool (CLAUDE.md, .cursorrules, etc.)
+- **Version control** - Skills stored in git alongside your code
+- **Team sharing** - Everyone gets the same capabilities when cloning the repo
+- **Transparency** - See exactly what instructions the AI follows
+- **Simplicity** - No build process, no dependencies, just markdown
 
 **AGENTS.md** is emerging as a naming convention for session bootstrap instructions:
 - Codex CLI automatically loads AGENTS.md at session start
@@ -256,6 +258,62 @@ This pattern works with:
 - Any future AI coding assistant
 
 Skills and AGENTS.md are plain markdown - no vendor lock-in.
+
+---
+
+## Limitations and Considerations
+
+This approach has specific strengths and limitations. Understanding them helps you decide when to adopt this pattern.
+
+### What This Approach Is Great For
+
+✅ **Teams using multiple AI tools** - Provides consistency across Claude Code, Codex CLI, Cursor, etc.
+✅ **Small to medium projects** - Works well with 3-10 skills
+✅ **Educational purposes** - Demonstrates portable AI workflows
+✅ **Shared team conventions** - Git-versioned, auditable AI instructions
+✅ **Reference implementation** - Learn how platform-agnostic skills work
+
+### When NOT to Use This Approach
+
+❌ **Your team uses only one AI tool** - Better to use that tool's native features (Claude Projects, Cursor rules, etc.) for maximum power
+❌ **You need 20+ skills** - Discovery becomes unwieldy; matching gets unreliable
+❌ **Performance-critical workflows** - Reading all skills every session has overhead
+❌ **Complex stateful applications** - Skills are stateless instructions, not full applications
+❌ **Individual developer, simple needs** - Might be overhead vs just good prompts
+
+### Important Clarifications
+
+**"Platform-agnostic" has limits:**
+- ✅ Content is portable (markdown works everywhere)
+- ⚠️ Integration requires per-tool setup (CLAUDE.md, .cursorrules, etc.)
+- Better described as: "Portable workflows with minimal per-tool glue"
+
+**Skills are not applications:**
+- Skills provide reusable AI behaviors and instructions
+- They don't have persistent state or traditional application lifecycle
+- Think "AI workflows" not "apps that run in AI interface"
+
+**Skill discovery scales to ~10 skills:**
+- Natural language matching works well for small skill sets
+- Beyond 10 skills, consider categorization or explicit invocation
+- Reading all skills every session becomes inefficient at scale
+
+### Complementary Approaches
+
+Don't make it either/or:
+- **Skills + MCP servers** - Use skills for instructions, MCP for actual capabilities
+- **Skills + native features** - Use platform-agnostic skills for core conventions, native features for tool-specific enhancements
+- **Hybrid approach** - Core conventions in AGENTS.md, tool-specific optimizations where beneficial
+
+### Sweet Spot
+
+This approach works best for:
+- 3-10 well-defined skills
+- Teams working across 2-3 different AI tools
+- Projects prioritizing portability and transparency
+- Educational or reference implementations
+
+If your needs fall outside this sweet spot, consider alternatives or hybrid approaches.
 
 ---
 
