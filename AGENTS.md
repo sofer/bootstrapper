@@ -35,6 +35,8 @@ description: Brief description of when to use this skill
 - User: "I want to create a spec" → Match to spec skill → Read and follow skills/spec.md
 - User: "commit these changes" → Match to commit skill → Read and follow skills/commit.md
 
+**Note**: Skills are in `skills/`. A symlink at `.claude/skills` provides Claude Code compatibility.
+
 ### 2. Platform-Agnostic Mode
 
 **CRITICAL: This template builds tools that work with ANY AI assistant.**

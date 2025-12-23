@@ -198,14 +198,18 @@ Where choices map to:
 
     ```
     project/
-    ├── AGENTS.md            # Project conventions and session bootstrap
-    ├── README.md            # This file - project documentation
-    ├── CLAUDE.md            # Claude Code auto-load redirect (optional)
-    ├── SETUP.md             # First-time setup guide (for AI assistants)
-    ├── skills/              # Reusable AI capabilities
-    │   ├── spec.md         # Creates project specifications
-    │   └── commit.md       # Formats commit messages
-    └── [project files]      # Your application code
+    ├── .claude/
+    │   ├── skills -> ../skills  # Symlink for Claude Code compatibility
+    │   └── settings.local.json  # Claude-specific settings (not tracked)
+    ├── AGENTS.md                # Project conventions and session bootstrap
+    ├── README.md                # This file - project documentation
+    ├── CLAUDE.md                # Claude Code auto-load redirect
+    ├── GEMINI.md                # Gemini CLI auto-load redirect
+    ├── SETUP.md                 # First-time setup guide (for AI assistants)
+    ├── skills/                  # Canonical location for AI capabilities
+    │   ├── spec.md             # Creates project specifications
+    │   └── commit.md           # Formats commit messages
+    └── [project files]          # Your application code
     ```
 
 ## Getting Started
