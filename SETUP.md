@@ -192,7 +192,7 @@ Where choices map to:
 - **Language**: {LANGUAGE}
 - **Documentation**: {DOC_STANDARD name}
 - **Commits**: Conventional Commits specification
-- **Skills**: Platform-agnostic AI capabilities
+- **Skills**: AI capabilities via skills directory
 
 ## Project Structure
 
@@ -204,7 +204,7 @@ Where choices map to:
     ├── AGENTS.md                # Project conventions and session bootstrap
     ├── README.md                # This file - project documentation
     ├── CLAUDE.md                # Claude Code auto-load redirect
-    ├── GEMINI.md                # Gemini CLI auto-load redirect
+    ├── GEMINI.md                # Gemini CLI redirect (future compatibility)
     ├── SETUP.md                 # First-time setup guide (for AI assistants)
     ├── skills/                  # Canonical location for AI capabilities
     │   ├── spec.md             # Creates project specifications
@@ -222,16 +222,13 @@ To start working with this project:
 
 **Claude Code:** Say anything to start (if CLAUDE.md is configured), or say "Read AGENTS.md"
 
-**Other tools** (Gemini CLI, Cursor, Aider, etc.): Say "Read AGENTS.md"
-
 ### What Happens at Session Start
 
 When AGENTS.md is loaded, your AI assistant will:
 1. Load all available skills from the `skills/` directory
-2. Enable platform-agnostic mode (no vendor-specific features)
-3. Check your current progress via git
-4. Report available skills and conventions
-5. Get ready to help
+2. Check your current progress via git
+3. Report available skills and conventions
+4. Get ready to help
 
 ### Available Skills
 
@@ -278,19 +275,6 @@ description: When to use this skill. AI uses this to auto-activate.
 
 **Simple skills:** Single `.md` file in `skills/` directory
 **Complex skills:** Directory `skills/name/` with `SKILL.md` plus supporting files
-
-## Platform Agnostic
-
-This project works with any AI coding assistant:
-- Claude Code
-- Codex CLI (OpenAI)
-- Gemini CLI (Google)
-- Cursor
-- Aider
-- GitHub Copilot CLI
-- Any future AI coding tool
-
-Skills and AGENTS.md are plain markdown - no vendor lock-in. Natural language interaction works everywhere.
 
 ## Session Resume
 
