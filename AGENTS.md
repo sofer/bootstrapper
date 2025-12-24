@@ -35,39 +35,17 @@ description: Brief description of when to use this skill
 - User: "I want to create a spec" → Match to spec skill → Read and follow skills/spec.md
 - User: "commit these changes" → Match to commit skill → Read and follow skills/commit.md
 
-### 2. Platform-Agnostic Mode
+**Note**: Skills are in `skills/`. A symlink at `.claude/skills` provides Claude Code compatibility.
 
-**CRITICAL: This template builds tools that work with ANY AI assistant.**
-
-You MUST NOT use platform-specific features:
-
-**Do Not Use or Suggest:**
-- ❌ Vendor-specific APIs or features
-- ❌ Built-in slash commands (like `/commit`, `/test`, `/review`)
-- ❌ Platform-specific attribution footers in commits or code
-- ❌ IDE-specific configuration or tools
-
-**Use Instead:**
-- ✅ Plain markdown files
-- ✅ Standard Python scripts (or chosen language)
-- ✅ Basic git commands
-- ✅ Universal shell commands (POSIX-compliant)
-- ✅ Natural language interaction
-
-**Why this matters:**
-- Skills created here work in Claude Code, Cursor, Aider, Codex CLI, Gemini CLI, and future tools
-- Users learn transferable patterns, not vendor-specific tricks
-- No lock-in to any single AI platform
-
-### 3. First-Time Setup Check
+### 2. First-Time Setup Check
 
 Before checking project state, verify if this file has been configured:
 
 - **Check for placeholder markers:** Look for `SETUP_PLACEHOLDER_RUNTIME`, `SETUP_PLACEHOLDER_LANGUAGE`, `SETUP_PLACEHOLDER_DOCS` in sections below
 - **If ANY placeholder found:** Read SETUP.md and run interactive first-time configuration
-- **If no placeholders found:** Configuration complete, skip to step 4
+- **If no placeholders found:** Configuration complete, skip to step 3
 
-### 4. Check Project State
+### 3. Check Project State
 
 After loading skills and understanding conventions:
 
@@ -75,12 +53,11 @@ After loading skills and understanding conventions:
 2. **Check `git status`** - Identify any uncommitted work
 3. **List available skills** - Tell user what skills are loaded and ready
 
-### 5. Confirm Ready
+### 4. Confirm Ready
 
 Let the user know you're ready:
 - Skills loaded (list them)
 - Project conventions understood
-- Platform-agnostic mode enabled
 - Ready to continue from current progress
 
 ---
@@ -160,7 +137,6 @@ Use **Conventional Commits** specification (https://www.conventionalcommits.org/
 - Keep description under 50 characters
 - Use imperative mood: "add feature" not "added feature"
 - Reference issue numbers when applicable: `feat(auth): add login (#123)`
-- **Do not add attribution footers** (no "Generated with..." or "Co-Authored-By: AI")
 
 ---
 
@@ -216,21 +192,3 @@ As a [user type], I want [goal] so that [benefit]
 
 Create checkbox lists for tracking:
 - [ ] User story description
-
----
-
-## Platform Agnostic Principles
-
-This template creates skills and tools that work with any AI coding assistant:
-
-- ✅ Claude Code
-- ✅ Cursor
-- ✅ Aider
-- ✅ Codex CLI (OpenAI)
-- ✅ Gemini CLI (Google)
-- ✅ ChatGPT
-- ✅ Any future AI coding assistant
-
-**How:** Skills and AGENTS.md are plain markdown. Standard git commands. Universal shell scripts. Natural language interaction.
-
-**Goal:** No vendor lock-in. Transferable skills across all AI tools.
