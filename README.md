@@ -64,7 +64,17 @@ Skills can be simple (single `.md` file) or complex (directory with `SKILL.md` +
 4. Follows skill instructions when activated
 5. Uses project conventions from AGENTS.md
 
-**Compatibility approach**: Codex CLI natively uses AGENTS.md + `skills/`. Claude Code requires a redirect file (CLAUDE.md) and symlink (.claude/skills). GEMINI.md is included for future compatibility.
+**Compatibility approach**:
+
+Codex CLI natively uses AGENTS.md + `skills/`.
+
+For skills directory structure:
+- **Project skills**: This repo includes symlink `.claude/skills → skills/` so Claude Code can find project-specific skills in the standard location
+- **Local skills** (optional, across all projects): Create `~/.skills/` for your local skills registry, then create symlinks:
+  - `ln -s ~/.skills ~/.claude/skills` (for Claude Code)
+  - `ln -s ~/.skills ~/.codex/skills` (for Codex CLI)
+
+GEMINI.md is included for future compatibility.
 
 ## References
 
